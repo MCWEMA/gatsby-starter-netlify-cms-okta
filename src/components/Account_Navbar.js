@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
+//import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 import wemalogo from '../img/Wemalabs-35.svg'
-import Dropdown from 'react-bootstrap/Dropdown'
+import Login, { signIn } from '../components/Login'
+
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -11,7 +13,19 @@ const Navbar = class extends React.Component {
     this.state = {
       active: false,
       navBarActiveClass: '',
+      user: false,
+      logout : this.logout.bind(this),
     }
+  }
+
+  logout() {
+    signIn.authClient.signOut().catch((error) => {
+      console.error('Sign out error: ' + error)
+    }).then(() => {
+      localStorage.setItem('isAuthenticated', 'false');
+      this.setState({user: false});
+      navigate('/');
+    });
   }
 
   toggleHamburger = () => {
@@ -44,7 +58,7 @@ const Navbar = class extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={wemalogo} alt="WemaLabs" style={{ width: '88px' }} />
+              <img src={wemalogo} alt="Kaldi" style={{ width: '88px' }} />
             </Link>
             {/* Hamburger menu */}
             <div
@@ -77,20 +91,22 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/contact">
                 Contact
               </Link>
-            
-              
+              {/*
               <Link className="navbar-item" to="/contact/examples">
                 Form Examples
-              </Link>
-            
+              </Link>*/}
             </div>
             <div className="navbar-end has-text-centered">
-            <Dropdown.Menu show>
-              <Dropdown.Header>Dropdown header</Dropdown.Header>
-              <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-              <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-            </Dropdown.Menu>
-              <Link className="navbar-item" to="/account">My Account</Link>
+            
+              <div className="navbar-item dropdown" to="/account" >Account
+                <ul>
+            
+                  <li> <Link to="/account">My Account</Link>{' '}</li>
+                  <li> <Link to="/account/settings">Settings</Link>{' '}</li>
+                  <li> <Link onClick={this.logout}>Logout</Link>{' '}</li>
+                </ul>
+              </div>
+            
               <a
                 className="navbar-item"
                 href="https://github.com/MCWEMA/gatsby-starter-hello-world"

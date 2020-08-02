@@ -3,7 +3,41 @@ module.exports = {
     title: 'Gatsby + Netlify CMS Starter',
     description:
       'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+    author: `Mc Wema`,
+    menuLinks: [
+      {
+        name: `index`,
+        link: `/`,
+      },
+      {
+        name: `Account`,
+        link: `/account`,
+        subMenu: [
+          {
+            name: `Profile`,
+            link: `/profile`,
+          },
+          {
+            name: `Settings`,
+            link: `/settings`,
+          },
+        ],
+      },
+      {
+        name: `Projects`,
+        link: `/projects`,
+      },
+      {
+        name: `Not-Found`,
+        link: `/404`,
+      },
+      {
+        name: `Tags`,
+        link: `/tags`,
+      },
+    ],
   },
+  
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
