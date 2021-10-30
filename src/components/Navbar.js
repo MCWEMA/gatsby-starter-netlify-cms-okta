@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+//import logo from '../img/logo.svg'
 import wemalogo from '../img/Wemalabs-35.svg'
 import Dropdown from 'react-bootstrap/Dropdown'
 
@@ -77,7 +77,6 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/contact">
                 Contact
               </Link>
-            
               
               <Link className="navbar-item" to="/contact/examples">
                 Form Examples

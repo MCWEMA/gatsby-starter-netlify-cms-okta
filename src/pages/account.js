@@ -2,7 +2,7 @@ import React from 'react'
 import { navigate, Router } from '@reach/router'
 import { Link } from 'gatsby'
 import Login, { signIn } from '../components/Login'
-import Account_Layout from '../components/Account_Layout'
+import AccountLayout from '../components/Account_Layout'
 
 const Home = () => <p>Account Information</p>;
 const Settings = () => <p>Settings</p>;
@@ -52,7 +52,7 @@ class Account extends React.Component {
     }
 
     return (
-      <Account_Layout>
+      <AccountLayout >
       <>
       
         <nav>
@@ -74,7 +74,7 @@ class Account extends React.Component {
           <Settings path="/account/settings"/>
         </Router>
       </>
-      </Account_Layout>
+      </AccountLayout>
     )
   }
 }

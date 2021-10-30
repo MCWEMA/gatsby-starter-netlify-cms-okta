@@ -2,9 +2,9 @@ import React from 'react'
 //import { Link } from 'gatsby'
 import { Link, navigate } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+//import logo from '../img/logo.svg'
 import wemalogo from '../img/Wemalabs-35.svg'
-import Login, { signIn } from '../components/Login'
+//import Login, { signIn } from '../components/Login'
 
 
 const Navbar = class extends React.Component {
@@ -18,15 +18,7 @@ const Navbar = class extends React.Component {
     }
   }
 
-  logout() {
-    signIn.authClient.signOut().catch((error) => {
-      console.error('Sign out error: ' + error)
-    }).then(() => {
-      localStorage.setItem('isAuthenticated', 'false');
-      this.setState({user: false});
-      navigate('/');
-    });
-  }
+
 
   toggleHamburger = () => {
     // toggle the active boolean in the state
@@ -125,4 +117,4 @@ const Navbar = class extends React.Component {
   }
 }
 
-export default Navbar
+export default Navbar;
